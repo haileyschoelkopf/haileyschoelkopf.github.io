@@ -16,6 +16,12 @@ I'm also into {ambient / experimental / electronic} music! You can find my bandc
 
 ### Contact me
 
-One of the best ways to get in touch is on [Twitter](https://twitter.com/haileysch__), where I post research-related thoughts.
+One of the best ways to get in touch is on [Twitter](https://twitter.com/haileysch__), where I post research-related thoughts. I might start cross-posting to and using [Bluesky](https://bsky.app/profile/haileysch.bsky.social) more often.
 
 You can reach me at [hailey.ruth.schoelkopf@gmail.com](mailto:hailey.ruth.schoelkopf@gmail.com) or, for EleutherAI-related research collaborations or questions, [hailey@eleuther.ai](mailto:hailey@eleuther.ai).
+
+
+
+### News
+
+* **2023-08-07**: My presentation of our work on [Pythia](https://arxiv.org/abs/2304.01373) was featured on [The Inside View on YouTube](https://www.youtube.com/watch?v=4SSbQTEE8es), check it out!
