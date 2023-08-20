@@ -29,7 +29,9 @@ navigation:
   - name: Tags
     url: /tags
   - name: Publications
-    url: /publications
+    url: https://www.semanticscholar.org/author/Hailey-Schoelkopf/2184031883
+  - name: CV
+    url: /cv
 
 # Pagination
 paginate: 5
