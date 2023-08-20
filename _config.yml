@@ -3,33 +3,31 @@
 #
 
 # Name of your site (displayed in the header)
-name: Kiko Now
+name: Hailey Schoelkopf
 
 # Short bio or description (displayed in the header)
-description: Web Developer from Somewhere
+description: "/"
 
 #
 # Flags below are optional
 #
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/aweekj/kiko-now/master/images/jekyll-logo.png
+avatar: https://raw.githubusercontent.com/haileyschoelkopf/haileyschoelkopf.github.io/master/images/69481329836--475133D9-A80B-4E10-9BD6-332025C519B6.jpg
 
 
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
 navigation:
-  - name: Blog
-    url: /
   - name: About
     url: /about
+  - name: Blog
+    url: /
   - name: Archive
     url: /archive
   - name: Tags
     url: /tags
-  - name: Theme
-    url: https://github.com/AWEEKJ/kiko-now
 
 # Pagination
 paginate: 5
@@ -38,18 +36,19 @@ paginate: 5
 footer-links:
   behance: # https://www.behance.net/<username>
   dribbble:
-  email:
+  email: 
   facebook:
   flickr:
-  github: AWEEKJ/kiko-now
+  github: haileyschoelkopf
+  googlescholar: https://scholar.google.com/citations?user=XLahYIYAAAAJ&hl=en
   googleplus: # anything in your profile username that comes after plus.google.com/
   instagram:
-  linkedin:
+  linkedin: https://www.linkedin.com/in/hailey-schoelkopf-070361286/
   pinterest:
   rss: # just type anything here for a working RSS icon
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   tumblr: # https://<username>.tumblr.com
-  twitter: jekyllrb
+  twitter: haileysch__
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # Text under the icons in footer
@@ -64,7 +63,7 @@ google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url:
+url: https://haileyschoelkopf.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
