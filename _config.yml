@@ -26,8 +26,8 @@ navigation:
     url: /
   - name: Archive
     url: /archive
-  - name: Tags
-    url: /tags
+  # - name: Tags
+  #   url: /tags
   - name: Publications
     url: https://www.semanticscholar.org/author/Hailey-Schoelkopf/2184031883
   - name: CV
@@ -63,7 +63,7 @@ footer-text: © 2023 Hailey Schoelkopf. Based off [Kiko Now](https://github.com/
 disqus: # <username>.disqus.com
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+google_analytics: G-2XWPC8R4YH
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
