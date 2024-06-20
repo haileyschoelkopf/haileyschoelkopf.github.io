@@ -4,8 +4,6 @@ permalink: /cv/
 title: cv
 nav: true
 nav_order: 5
-cv_pdf: example_pdf.pdf
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
-toc:
-  sidebar: left
+cv_pdf: Hailey-Schoelkopf-Resume-Updated-6-14-24.pdf
+description: Click the download button to the right for a copy of my CV (last updated June 14, 2024).
 ---
