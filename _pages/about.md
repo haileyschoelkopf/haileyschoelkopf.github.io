@@ -25,4 +25,7 @@ Hi! I'm Hailey (she/her). I am currently a Research Scientist at [EleutherAI](ht
 - The science of scaling models up reliably.
 
 
+I am currently a maintainer of the [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness). Other notable projects include pretraining the [Pythia](https://arxiv.org/abs/2304.01373) suite of language models, and engineering for the continually-pretrained [Llemma](https://arxiv.org/abs/2310.10631) base models for mathematics.
+
+
 
