@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://haileyschoelkopf.github.io/wip-new-website//sitemap.xml
+Sitemap: https://haileyschoelkopf.github.io/sitemap.xml
