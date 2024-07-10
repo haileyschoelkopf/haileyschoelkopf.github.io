@@ -2,7 +2,7 @@
 layout: distill
 title: Linear Attention Fundamentals
 description: The basics of linear attention in sub-quadratic language model architectures. 
-tags: ML, Architectures, "Linear Attention"
+tags: ML, Architectures, Linear-Attention
 giscus_comments: false
 date: 2024-07-09
 featured: false
