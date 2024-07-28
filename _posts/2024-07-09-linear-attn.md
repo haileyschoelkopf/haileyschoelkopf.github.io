@@ -48,7 +48,7 @@ The fundamental building block of the transformer is the scaled dot product / so
 
  $$ \text{Attention}(Q,K,V) = \text{Softmax}\left(QK^T\right)V $$ 
 
-Softmax attention is very powerful, but is not especially friendly to fast inference, especially when operating on very long sequences: it requires  $$ O(L^2d) $$  FLOP<d-footnote>We write "FLOP" to indicate a quantity of floating point operations and "FLOPs" to indicate "FLOP per second". </d-footnote> and (although circumvented by efficient, modern implementations such as Flash Attention<d-cite key="dao2022flashattentionfastmemoryefficientexact"></d-cite><d-cite key="dao2023flashattention2fasterattentionbetter"></d-cite>) naively  $$ O(L^2d) $$  memory. 
+Softmax attention is very powerful, but is not especially friendly to fast inference, especially when operating on very long sequences: it requires  $$ O(L^2d) $$  FLOP<d-footnote>We write "FLOP" to indicate a quantity of floating point operations and "FLOPs" to indicate "FLOP per second". </d-footnote> and (although circumvented by efficient, modern implementations such as Flash Attention<d-cite key="dao2022flashattentionfastmemoryefficientexact"></d-cite><d-cite key="dao2023flashattention2fasterattentionbetter"></d-cite>) naively  $$ O(L^2) $$  memory. 
 
 
 For this reason, many attempts have been made to recover softmax attention performance at  $$ < O(L^2) $$  complexity--for example, an operation that scales linearly in complexity as  $$ O(L) $$  as sequence length increases. While many of the methods have commonalities or shared foundations, we'll focus on one particular family of methods that fall under the header of "Linear Attentions". 
@@ -111,7 +111,7 @@ Then, for calculating  $$ o_{l+1} $$ , we can let  $$ S_l = (S_{l-1} + \phi(k_l)
 
 This gives us a *recurrent view* of linear attention--if we maintain a constant-size *"state"*  $$ S_l $$  and "normalizer"  $$ Z_l $$ , we can perform each decoding timestep in  $$ O(1) $$  time and memory! Katharopoulos et al. (2020) also show that this can be formally viewed as an RNN with matrix-valued state  $$ S_l \in \mathbb{R}^{d' \times d} $$ .
 
-Some work <d-cite key="yang2024gatedlinearattentiontransformers"></d-cite><d-cite key="sun2023retentivenetworksuccessortransformer"></d-cite> drops the  $$ Z_l $$  normalizer due to numerical instabilities, and empirically doesn't observe any problems. Additionally, using  $$ \phi $$  equal to the identity also appears to work, interestingly.
+Some work <d-cite key="yang2024gatedlinearattentiontransformers"></d-cite><d-cite key="sun2023retentivenetworksuccessortransformer"></d-cite> drops the  $$ Z_l $$  normalizer due to numerical instabilities, and empirically doesn't observe any problems. Additionally, using  $$ \phi $$  equal to the identity also appears to work, interestingly <d-cite key="sun2023retentivenetworksuccessortransformer"></d-cite>.
 
 This gives us a clean recurrent form for computing  $$ o_l $$  from  $$ o_{l-1} $$ :
 
@@ -137,7 +137,7 @@ to indicate the computation of our entire output in parallel. However, when perf
 
  $$ O = \frac{(\phi(Q)\phi(K)^T \odot M) V}{\phi(Q)\sum^L_{i=1}\phi(K_i)^T} $$ 
 
-to obtain the right answer to avoid "seeing into the future". This pointwise multiplication by our causal mask  $$ M \in \mathbb{R}^{L \times L} $$  prevents us from using associativity to compute  $$ \phi(K)^TV $$  first--losing the better complexity of linear attention we claimed. We need to compute  $$ \phi(Q)\phi(K)^T $$ , requiring  $$ O(L^2) $$  time 
+to obtain the right answer to avoid "seeing into the future". This pointwise multiplication by our causal mask  $$ M \in \mathbb{R}^{L \times L} $$  prevents us from using associativity to compute  $$ \phi(K)^TV $$  first--losing the better complexity of linear attention we claimed. We need to compute  $$ \phi(Q)\phi(K)^T $$ , requiring  $$ O(L^2) $$  time. 
 
 
 ### Chunkwise Form
@@ -162,7 +162,7 @@ the first portion of the equation is the contribution across previous chunks, co
 
 To compute the entire output  $$ O $$  for all chunks, we have two options<d-cite key="yang2024gatedlinearattentiontransformers"></d-cite><d-cite key="yang2024fla"></d-cite>:
 
-1) Precompute and *materialize* each chunk's starting state: save  $$ S_{[c]} $$ ,   $$ \forall c \in [1, L//C] $$ .
+1) Precompute and *materialize* each chunk's starting state: save  $$ S_{[c]} $$ ,   $$ \forall c \in [1, L//C] $$ . This can be done by starting with $$ S_{[0]} = O \in \mathbb{R}^{d' \times d} $$, then sequentially calculating and storing $$ S_{[c+1]} = S_{[c]} + \phi(K_{[c]})^T V_{[c]} $$. 
 
 2) Save no intermediate  $$ S_{[c]} $$  aside from (optionally, during the prefill stage for inference)  $$ S_{L//C} $$ , our final state.
 
@@ -174,7 +174,7 @@ Alternately, we can avoid materializing any states  $$ S_{[c]} $$ . This will fo
 
 This chunkwise formulation allows us to interpolate between the parallel and recurrent forms, choosing  $$ C $$  based on which is fastest, and ends up being faster than full recurrence because we can take advantage of fast matrix multiplications without paying a cost quadratic in  $$ L $$  !
 
-This chunkwise formulation is also adopted by the Mamba-2 / SSD<d-cite key="dao2024transformersssmsgeneralizedmodels"></d-cite> architecture--chunkwise parallelism is very hardware-friendly.
+This chunkwise formulation is also adopted by the Mamba-2 / SSD<d-cite key="dao2024transformersssmsgeneralizedmodels"></d-cite> architecture--chunkwise parallelism is very hardware-friendly. This chunked algorithm is sometimes called "Flash Linear Attention" for this reason <d-cite key="yang2024gatedlinearattentiontransformers"></d-cite><d-cite key="yang2024fla"></d-cite>.
 
 ## Conclusion
 
@@ -187,3 +187,6 @@ In this post, we've seen:
 Again, this post is based off of the excellent exposition in Gated Linear Attention<d-cite key="yang2024gatedlinearattentiontransformers"></d-cite>, Parallel DeltaNet<d-cite key="yang2024parallelizinglineartransformersdelta"></d-cite>, and the original Linear Attention paper. If you're interested in this topic, I'd highly recommend checking them out as a reference point!
 
 
+## Acknowledgements
+
+Thanks to Arun Kumar for reading an early version of this blog post!
