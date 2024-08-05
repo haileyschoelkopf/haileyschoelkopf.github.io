@@ -3,10 +3,12 @@
     <!-- MathJax -->
     <script type="text/javascript">
       window.MathJax = {
-        tex: {
-          tags: 'ams',
-        },
-      };
+          tex: {
+            packages: ['base', 'ams']
+          },
+          loader: {
+            load: ['ui/menu', '[tex]/ams']
+          };
     </script>
     <script
       defer
