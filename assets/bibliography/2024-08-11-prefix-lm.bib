@@ -1,0 +1,190 @@
+
+@InProceedings{pmlr-v162-wang22u,
+  title = 	 {What Language Model Architecture and Pretraining Objective Works Best for Zero-Shot Generalization?},
+  author =       {Wang, Thomas and Roberts, Adam and Hesslow, Daniel and Scao, Teven Le and Chung, Hyung Won and Beltagy, Iz and Launay, Julien and Raffel, Colin},
+  booktitle = 	 {Proceedings of the 39th International Conference on Machine Learning},
+  pages = 	 {22964--22984},
+  year = 	 {2022},
+  editor = 	 {Chaudhuri, Kamalika and Jegelka, Stefanie and Song, Le and Szepesvari, Csaba and Niu, Gang and Sabato, Sivan},
+  volume = 	 {162},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {17--23 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v162/wang22u/wang22u.pdf},
+  url = 	 {https://proceedings.mlr.press/v162/wang22u.html},
+  abstract = 	 {Large pretrained Transformer language models have been shown to exhibit zero-shot generalization, i.e. they can perform a wide variety of tasks that they were not explicitly trained on. However, the architectures and pretraining objectives used across state-of-the-art models differ significantly, and there has been limited systematic comparison of these factors. In this work, we present a large-scale evaluation of modeling choices and their impact on zero-shot generalization. In particular, we focus on text-to-text models and experiment with three model architectures (causal/non-causal decoder-only and encoder-decoder), trained with two different pretraining objectives (autoregressive and masked language modeling), and evaluated with and without multitask prompted finetuning. We train models with over 5 billion parameters for more than 168 billion tokens, thereby increasing the likelihood that our conclusions will transfer to even larger scales. Our experiments show that causal decoder-only models trained on an autoregressive language modeling objective exhibit the strongest zero-shot generalization after purely self-supervised pretraining. However, models with non-causal visibility on their input trained with a masked language modeling objective followed by multitask finetuning perform the best among our experiments. We therefore consider the adaptation of pretrained models across architectures and objectives. Code and checkpoints are available at https://github.com/bigscience- workshop/architecture-objective.}
+}
+
+
+#TODO: cite Yitay blogpost
+# https://www.yitay.net/blog/model-architecture-blogpost-encoders-prefixlm-denoising
+# Hydra
+
+@misc{arora2024justreadtwiceclosing,
+      title={Just read twice: closing the recall gap for recurrent language models}, 
+      author={Simran Arora and Aman Timalsina and Aaryan Singhal and Benjamin Spector and Sabri Eyuboglu and Xinyi Zhao and Ashish Rao and Atri Rudra and Christopher Ré},
+      year={2024},
+      eprint={2407.05483},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2407.05483}, 
+}
+
+@inproceedings{du-etal-2022-glm,
+    title = "{GLM}: General Language Model Pretraining with Autoregressive Blank Infilling",
+    author = "Du, Zhengxiao  and
+      Qian, Yujie  and
+      Liu, Xiao  and
+      Ding, Ming  and
+      Qiu, Jiezhong  and
+      Yang, Zhilin  and
+      Tang, Jie",
+    editor = "Muresan, Smaranda  and
+      Nakov, Preslav  and
+      Villavicencio, Aline",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-long.26",
+    doi = "10.18653/v1/2022.acl-long.26",
+    pages = "320--335",
+    abstract = "There have been various types of pretraining architectures including autoencoding models (e.g., BERT), autoregressive models (e.g., GPT), and encoder-decoder models (e.g., T5). However, none of the pretraining frameworks performs the best for all tasks of three main categories including natural language understanding (NLU), unconditional generation, and conditional generation. We propose a General Language Model (GLM) based on autoregressive blank infilling to address this challenge. GLM improves blank filling pretraining by adding 2D positional encodings and allowing an arbitrary order to predict spans, which results in performance gains over BERT and T5 on NLU tasks. Meanwhile, GLM can be pretrained for different types of tasks by varying the number and lengths of blanks. On a wide range of tasks across NLU, conditional and unconditional generation, GLM outperforms BERT, T5, and GPT given the same model sizes and data, and achieves the best performance from a single pretrained model with 1.25{\mbox{$\times$}} parameters of BERT Large , demonstrating its generalizability to different downstream tasks.",
+}
+
+@misc{bavarian2022efficienttraininglanguagemodels,
+      title={Efficient Training of Language Models to Fill in the Middle}, 
+      author={Mohammad Bavarian and Heewoo Jun and Nikolas Tezak and John Schulman and Christine McLeavey and Jerry Tworek and Mark Chen},
+      year={2022},
+      eprint={2207.14255},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2207.14255}, 
+}
+
+@misc{tay2023ul2unifyinglanguagelearning,
+      title={UL2: Unifying Language Learning Paradigms}, 
+      author={Yi Tay and Mostafa Dehghani and Vinh Q. Tran and Xavier Garcia and Jason Wei and Xuezhi Wang and Hyung Won Chung and Siamak Shakeri and Dara Bahri and Tal Schuster and Huaixiu Steven Zheng and Denny Zhou and Neil Houlsby and Donald Metzler},
+      year={2023},
+      eprint={2205.05131},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2205.05131}, 
+}
+
+@misc{muennighoff2023crosslingualgeneralizationmultitaskfinetuning,
+      title={Crosslingual Generalization through Multitask Finetuning}, 
+      author={Niklas Muennighoff and Thomas Wang and Lintang Sutawika and Adam Roberts and Stella Biderman and Teven Le Scao and M Saiful Bari and Sheng Shen and Zheng-Xin Yong and Hailey Schoelkopf and Xiangru Tang and Dragomir Radev and Alham Fikri Aji and Khalid Almubarak and Samuel Albanie and Zaid Alyafeai and Albert Webson and Edward Raff and Colin Raffel},
+      year={2023},
+      eprint={2211.01786},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2211.01786}, 
+}
+
+
+
+@misc{tay2022transcendingscalinglaws01,
+      title={Transcending Scaling Laws with 0.1% Extra Compute}, 
+      author={Yi Tay and Jason Wei and Hyung Won Chung and Vinh Q. Tran and David R. So and Siamak Shakeri and Xavier Garcia and Huaixiu Steven Zheng and Jinfeng Rao and Aakanksha Chowdhery and Denny Zhou and Donald Metzler and Slav Petrov and Neil Houlsby and Quoc V. Le and Mostafa Dehghani},
+      year={2022},
+      eprint={2210.11399},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2210.11399}, 
+}
+
+@misc{katharopoulos2020transformersrnnsfastautoregressive,
+      title={Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention}, 
+      author={Angelos Katharopoulos and Apoorv Vyas and Nikolaos Pappas and François Fleuret},
+      year={2020},
+      eprint={2006.16236},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2006.16236}, 
+}
+
+@misc{yang2024gatedlinearattentiontransformers,
+      title={Gated Linear Attention Transformers with Hardware-Efficient Training}, 
+      author={Songlin Yang and Bailin Wang and Yikang Shen and Rameswar Panda and Yoon Kim},
+      year={2024},
+      eprint={2312.06635},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2312.06635}, 
+}
+
+@misc{dao2022flashattentionfastmemoryefficientexact,
+      title={FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness}, 
+      author={Tri Dao and Daniel Y. Fu and Stefano Ermon and Atri Rudra and Christopher Ré},
+      year={2022},
+      eprint={2205.14135},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2205.14135}, 
+}
+
+@misc{dao2023flashattention2fasterattentionbetter,
+      title={FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning}, 
+      author={Tri Dao},
+      year={2023},
+      eprint={2307.08691},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2307.08691}, 
+}
+
+@inproceedings{devlin-etal-2019-bert,
+    title = "{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    author = "Devlin, Jacob  and
+      Chang, Ming-Wei  and
+      Lee, Kenton  and
+      Toutanova, Kristina",
+    editor = "Burstein, Jill  and
+      Doran, Christy  and
+      Solorio, Thamar",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    month = jun,
+    year = "2019",
+    address = "Minneapolis, Minnesota",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N19-1423",
+    doi = "10.18653/v1/N19-1423",
+    pages = "4171--4186",
+    abstract = "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7{\%} (4.6{\%} absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+}
+
+@misc{raffel2023exploringlimitstransferlearning,
+      title={Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer}, 
+      author={Colin Raffel and Noam Shazeer and Adam Roberts and Katherine Lee and Sharan Narang and Michael Matena and Yanqi Zhou and Wei Li and Peter J. Liu},
+      year={2023},
+      eprint={1910.10683},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/1910.10683}, 
+}
+
+@misc{pytorch2024flexattention,
+      title={FlexAttention: The Flexibility of PyTorch with the Performance of FlashAttention},
+      author={Horace He and Driss Guessous and Yanbo Liang and Joy Dong},
+      year={2024},
+      url={https://pytorch.org/blog/flexattention/},
+}
+
+@misc{hwang2024hydrabidirectionalstatespace,
+      title={Hydra: Bidirectional State Space Models Through Generalized Matrix Mixers}, 
+      author={Sukjun Hwang and Aakash Lahoti and Tri Dao and Albert Gu},
+      year={2024},
+      eprint={2407.09941},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2407.09941}, 
+}
+
+@misc{tay2024objectives,
+      title={What happened to BERT & T5? On Transformer Encoders, PrefixLM and Denoising Objectives},
+      year={2024},
+      author={Yi Tay},
+      url={https://www.yitay.net/blog/model-architecture-blogpost-encoders-prefixlm-denoising},
+}
