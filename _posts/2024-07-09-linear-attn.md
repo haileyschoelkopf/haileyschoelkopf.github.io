@@ -150,7 +150,7 @@ We will split our sequence of length  $$ L $$  into  $$ C $$  chunks of length  
 
 Now, we need to define a few components: first, our new update rule for going from the state  $$ S_{[c]} $$  at the start of chunk  $$ c $$  to the next chunk  $$ c+1 $$ 's starting state  $$ S_{[c+1]} $$  is as follows:<d-footnote>As is convention in the rest of this post, we assume that chunk indices are 1-indexed: $c \in [1, L//C]$. So $S_{[1]}$ corresponds to tokens indexed between $[1, C]$.</d-footnote>
 
- $$ S_{[c+1]} = S_{[c]} + \sum_{i=((c-1)C + 1)}^{C}\phi(k_i)^Tv_i = S_{[c]} + \phi(K_{[c]})^T V_{[c]} $$  
+ $$ S_{[c+1]} = S_{[c]} + \sum_{i=((c-1)C + 1)}^{cC}\phi(k_i)^Tv_i = S_{[c]} + \phi(K_{[c]})^T V_{[c]} $$  
 
 And to compute the output for chunk  $$ c+1 $$ ,  $$ O_{[c+1]} \in \mathbb{R}^{C \times d} $$  , we compute
 
